@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rusma Prima Rokhmaningtyas - Portfolio</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Body Styling */
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header Section */
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .header-content h1 {
+            font-size: 2.5rem;
+        }
+
+        .header-content p {
+            font-size: 1.2rem;
+            margin-top: 5px;
+        }
+
+        /* Sections Styling */
+        section {
+            padding: 40px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        section.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #444;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        /* Skills Section */
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .skills-list span {
+            background-color: #007bff;
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 5px;
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        /* Button Styles */
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Dark Mode styles */
+        body.dark-mode {
+            background-color: #333;
+            color: #f9f9f9;
+        }
+
+        header.dark-mode,
+        footer.dark-mode {
+            background-color: #222;
+            color: #f9f9f9;
+        }
+
+        .button.dark-mode {
+            background-color: #444;
+            color: #fff;
+        }
+
+        .button.dark-mode:hover {
+            background-color: #555;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="header-content">
+            <h1>Rusma Prima Rokhmaningtyas</h1>
+            <p>Digital Marketer | GIS Specialist | Data Scientist</p>
+            <button id="darkModeToggle" class="button">Toggle Dark Mode</button>
+        </div>
+    </header>
+
+    <!-- About Me Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+            I’m a Data Scientist with a background in Geography-GIS and data science, blending coding and analytical skills with over five years of experience in consulting, digital marketing and content creation. Currently a Copywriter at Elitery and an Advanced Coding Teacher at Koding Next! Nice to meet you!</p>
+        <a href="https://medium.com/@rusma9" target="_blank" class="button">Read My Medium Articles</a>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <h2>Recent Experience</h2>
+        <ul>
+            <li>
+                <h3>Copywriter - Elitery</h3>
+                <p>Jan 2024 - Present</p>
+                <p>Developing compelling written materials for diverse marketing projects, collaborating with team members, and ensuring content quality and consistency.</p>
+            </li>
+            <li>
+                <h3>Advanced Teacher - Koding Next</h3>
+                <p>Jan 2024 - Present</p>
+                <p>Teaching coding and computer science to international students, incorporating the latest technologies into curricula, and providing guidance to students.</p>
+            </li>
+            <!-- Add more experiences as needed -->
+        </ul>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-list">
+            <span>SEO</span>
+            <span>SEM</span>
+            <span>Research</span>
+            <span>Writing</span>
+            <span>Big Data Analytics</span>
+            <span>Python</span>
+            <span>HTML/CSS/JS</span>
+            <span>GIS</span>
+            <span>ArcGIS Products</span>
+            <span>Salesforce Marketing Cloud</span>
+            <!-- Add more skills as needed -->
+        </div>
+    </section>
+
+    <!-- Social Links Section -->
+    <section id="contact">
+        <h2>Connect with Me</h2>
+        <div class="social-links">
+            <a href="https://id.linkedin.com/in/rusma2525" target="_blank">LinkedIn</a>
+            <a href="https://www.instagram.com/prmrkhmnngtys/?hl=hr" target="_blank">Instagram</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; <span id="currentYear"></span> Rusma Prima Rokhmaningtyas. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        darkModeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            darkModeToggle.classList.toggle('dark-mode');
+        });
+
+        // Scroll Reveal
+        function revealOnScroll() {
+            const sections = document.querySelectorAll("section");
+            const windowHeight = window.innerHeight;
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                if (sectionTop < windowHeight - 100) {
+                    section.classList.add("revealed");
+                }
+            });
+        }
+        window.addEventListener("scroll", revealOnScroll);
+
+        // Dynamic Year
+        document.getElementById("currentYear").textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>
